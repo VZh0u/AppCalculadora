@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mult;
     private Button div;
     private Button soma;
+    private Button sub;
     private Button limp;
 
     @Override
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         campo = (EditText) findViewById(R.id.campo);
         campo1 = (EditText) findViewById(R.id.campo1);
         soma = (Button) findViewById(R.id.soma);
+        sub = (Button) findViewById(R.id.sub);
         div= (Button) findViewById(R.id.div);
         mult = (Button) findViewById(R.id.mult);
         limp = (Button) findViewById(R.id.limp);
@@ -36,6 +38,23 @@ public class MainActivity extends AppCompatActivity {
                     Double valor = Double.parseDouble(campo1.getText().toString());
 
                     result = result + valor;
+
+                    Toast.makeText(MainActivity.this, "O valor é: "+result, Toast.LENGTH_LONG).show();
+
+                }catch (Exception E){
+                    Toast.makeText(MainActivity.this, "Houve um problema. Tente novamente!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Double result = Double.parseDouble(campo.getText().toString());
+                    Double valor = Double.parseDouble(campo1.getText().toString());
+
+                    result = result - valor;
 
                     Toast.makeText(MainActivity.this, "O valor é: "+result, Toast.LENGTH_LONG).show();
 
